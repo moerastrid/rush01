@@ -6,12 +6,11 @@
 /*   By: ageels <ageels@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/06/15 14:26:37 by ageels        #+#    #+#                 */
-/*   Updated: 2023/06/15 17:18:55 by ageels        ########   odam.nl         */
+/*   Updated: 2023/06/19 15:01:01 by astrid        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rush.h"
-#include <stdio.h>
 
 static int	getsize(char **argv)
 {

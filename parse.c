@@ -6,12 +6,11 @@
 /*   By: ageels <ageels@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/06/15 15:53:40 by ageels        #+#    #+#                 */
-/*   Updated: 2023/06/18 17:18:08 by ageels        ########   odam.nl         */
+/*   Updated: 2023/06/19 15:07:35 by astrid        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rush.h"
-#include <stdio.h>
 
 static int	**set_view(char *input, int size)
 {
@@ -25,37 +24,19 @@ static int	**set_view(char *input, int size)
 		return (NULL);
 	j = 0;
 	k = 0;
-	printf("test\n");
 	while (j < 4)
 	{
-		((int **)temp)[j] = temp + 5 * sizeof(int *) + (j * size);
+		((int **)temp)[j] = temp + 5 * sizeof(int *) + (j * size * size);
 		i = 0;
 		while (i < size)
 		{
 			((int **)temp)[j][i] = input[k];
-			printf("%d ", ((int **)temp)[j][i]);
 			i++;
 			k += 2;
 		}
 		j++;
 	}
 	((int **)temp)[j] = NULL;
-
-	printf("\n\n");
-	printf("temp:\n");
-	j = 0;
-	while (j < 4)
-	{
-		i = 0;
-		while (i < size)
-		{
-			printf("%d ", ((int **)temp)[j][i]);
-			i++;
-		}
-		printf("\n");
-		j++;
-	}
-
 	return ((int **)temp);
 }
 

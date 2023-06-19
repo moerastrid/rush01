@@ -6,7 +6,7 @@
 /*   By: ageels <ageels@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/06/15 14:13:34 by ageels        #+#    #+#                 */
-/*   Updated: 2023/06/18 14:57:07 by ageels        ########   odam.nl         */
+/*   Updated: 2023/06/19 15:22:02 by astrid        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	main(int argc, char **argv)
 		error_return(1);
 	display_all(view, map, size);
 	display_map(map, size);
+	
 	free(view);
 	free(map);
 	return (0);

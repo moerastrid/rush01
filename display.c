@@ -6,7 +6,7 @@
 /*   By: ageels <ageels@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/06/18 14:04:15 by ageels        #+#    #+#                 */
-/*   Updated: 2023/06/18 17:07:51 by ageels        ########   odam.nl         */
+/*   Updated: 2023/06/19 15:17:14 by astrid        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,45 +27,40 @@ void	display_map(char **map, int size)
 	write(1, "\n", 1);
 }
 
+static void	display_updown(int j, int **view, int size)
+{
+	int		i;
+	char	c;
+
+	i = 0;
+	write(1, " ", 1);
+	while (i < size)
+	{
+		c = view[j][i];
+		write(1, &c, 1);
+		i++;
+	}
+	write(1, "\n", 1);
+}
+
 void	display_all(int **view, char **map, int size)
 {
 	int		i;
-	int		j;
-	int		k;
 	char	c;
 	char	d;
 
-	(void)map;
-	j = 0;
-	k = 0;
-	while (j < size)
+	display_updown(UP, view, size);
+	i = 0;
+	while (i < size)
 	{
-		i = 0;
-		if (j == UP || j == DOWN)
-		{
-			write(1, " ", 1);
-			while (i < size)
-			{
-				c = view[j][i];
-				write(1, &c, 1);
-				i++;
-			}
-		}
-		else
-		{
-			while (k < size)
-			{
-				c = view[LEFT][k];
-				d = view[RIGHT][k];
-				write(1, &c, 1);
-				write(1, map[k], size);
-				write(1, &d, 1);
-				write(1, "\n", 1);
-				k++;
-			}
-		}
+		c = view[LEFT][i];
+		d = view[RIGHT][i];
+		write(1, &c, 1);
+		write(1, map[i], size);
+		write(1, &d, 1);
 		write(1, "\n", 1);
-		j++;
+		i++;
 	}
+	display_updown(DOWN, view, size);
 	write(1, "\n", 1);
 }
